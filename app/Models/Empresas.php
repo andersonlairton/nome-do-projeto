@@ -17,6 +17,10 @@ class Empresas extends Model
         'codigo', 'empresa', 'sigla', 'razao_social'
     ];
 
-    // Se necessário, pode desabilitar timestamps se não for usar
     public $timestamps = true;
+
+    public function clientes()
+    {
+        return $this->hasMany(Clientes::class, 'empresa', 'codigo');
+    }
 }
